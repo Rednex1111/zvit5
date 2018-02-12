@@ -1,0 +1,14 @@
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let group of groups">
+    <ion-card-content style="margin: 0" (click)="productTapped(group.group_id)">
+      <div id="{{group.group_id}}">
+        <p class="goods_title">{{group.name}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

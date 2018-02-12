@@ -2,9 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { ContactsPage } from "../pages/contacts/contacts";
 import { NewsPage } from "../pages/news/news";
 import { EnterprisesPage } from "../pages/enterprises/enterprises";
+import { BeaconCommunicationPage } from "../pages/beacon-communication/beacon-communication";
+import { ReferenceBookPage } from "../pages/reference-book/reference-book";
+import { GroupsGoodsPage} from "../pages/groups-goods/groups-goods";
 import { SettingsPage } from "../pages/settings/settings";
 import { TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import {WelcomePage} from "../pages/welcome/welcome";
@@ -35,11 +38,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'NewsPage', component: NewsPage, icon: 'logo-designernews'},
-/*      {title: 'ReferenceBookPage', component: ReferenceBookPage, icon: 'book'},*/
+      {title: 'ReferenceBookPage', component: ReferenceBookPage, icon: 'book'},
       {title: 'EnterprisesPage', component: EnterprisesPage, icon: 'briefcase'},
-      /*{title: 'GoodsPage', component: GroupsGoodsPage, icon: 'cart'},
+      {title: 'GoodsPage', component: GroupsGoodsPage, icon: 'cart'},
       {title: 'BeaconCommunicationPage', component: BeaconCommunicationPage, icon: 'call'},
-      {title: 'ContactsPage', component: ContactsPage, icon: 'people'},*/
+      {title: 'ContactsPage', component: ContactsPage, icon: 'people'},
       {title: 'SettingsPage', component: SettingsPage, icon: 'settings'},
       {title: 'exit', component: 'exit', icon: 'log-out'}
     ];

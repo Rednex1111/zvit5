@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ToastOptions, Toast, NavController, LoadingController, AlertController, ToastController} from 'ionic-angular';
 import {WordpressService} from "../../providers/wordpress.service";
 import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";
-/*import {InfoEnterprisesPage} from "../info-enterprises/info-enterprises";*/
+import {InfoEnterprisesPage} from "../info-enterprises/info-enterprises";
 import {TranslateService} from "@ngx-translate/core";
 
 
@@ -156,10 +156,10 @@ export class EnterprisesPage {
     }
 
     infoTapped(company) {
-        /*this.navCtrl.push(InfoEnterprisesPage, {
+        this.navCtrl.push(InfoEnterprisesPage, {
             company_id: company.company_id,
             name: company.title
-        });*/
+        });
     }
 
     search_company(event: any) {

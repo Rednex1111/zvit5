@@ -1,0 +1,51 @@
+page-good-info {
+  .select-md {
+    min-width: 100%;
+    padding: 13px 8px 13px 0;
+  }
+
+  .name_product_info{
+    overflow: hidden;
+    padding: 10px;
+    border: none;
+    resize: none;
+    min-width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+
+  .card-title-md {
+    font-size: 17px;
+  }
+  .card-content-md {
+    padding: 13px 16px 0 13px;
+  }
+
+  .price{
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 5px;
+  }
+
+
+  .check_prod, .check_prod_select, .check_prod_del{
+    color: darkgrey;
+    font-size: 25px;
+    float: left;
+  }
+  .check_prod_select{
+    color: #3ccc5d;
+  }
+
+  .choose{
+    background: rgba(243, 255, 108, 0.8313725490196079);
+  }
+  #send_order{
+    margin-top: 20px;
+  }
+
+
+  .title_company {
+    font-size: 20px !important;
+  }
+}

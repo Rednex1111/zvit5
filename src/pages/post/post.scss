@@ -1,0 +1,66 @@
+page-post {
+
+  .post, .grid {
+    padding: 0;
+    width: 100%;
+    margin: 0 auto;
+  }
+  /*img {
+    width: 100% !important;
+  }*/
+
+  /*.img_posts_content{
+    max-height: 150px;
+    overflow: hidden;
+  }*/
+  ion-header{
+    z-index: 1;
+  }
+  .post-title{
+    display: block;
+    white-space: normal;
+    color: white;
+    font-size: 15px;
+    line-height: 1.2;
+    margin: 2px 0;
+    padding: 8px 0;
+  }
+
+  .post-content{
+    text-align: justify;
+    padding: 10px;
+    margin: 0 0 2px;
+    font-size: 1.4rem;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .img_posts{
+  /*  display:inline-block;*/
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  .post_date{
+    background: rgba(140, 136, 125, 0.67);
+    top: -23px;
+    width: 100%;
+    position: relative;
+    height: 20px;
+    color: white;
+    text-align: right;
+    padding: 3px 20px 0 0;
+  }
+  .bold-title{
+    font-weight: bold;
+    font-size: inherit;
+    color: #000;
+  }
+
+  .category-col {
+    flex-grow: 0;
+    width: auto;
+    flex-basis: auto;
+  }
+
+}

@@ -10,6 +10,16 @@ import { HeaderPage} from "../pages/header/header";
 import { RegisterPage } from "../pages/register/register";
 import { EnterprisesPage } from "../pages/enterprises/enterprises";
 import { SettingsPage } from "../pages/settings/settings";
+import { ReferenceBookPage } from "../pages/reference-book/reference-book";
+import { GoodsPage } from "../pages/goods/goods";
+import { GroupsGoodsPage} from "../pages/groups-goods/groups-goods";
+import { BeaconCommunicationPage } from "../pages/beacon-communication/beacon-communication";
+import { ContactsPage} from "../pages/contacts/contacts";
+import { GoodInfoPage} from "../pages/good-info/good-info";
+import { PostPage} from "../pages/post/post";
+import { InfoReferenceBookPage} from "../pages/info-reference-book/info-reference-book";
+import { InfoEnterprisesPage} from "../pages/info-enterprises/info-enterprises";
+import { InfoContactPage} from "../pages/info-contact/info-contact";
 //default module
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,6 +33,7 @@ import { LanguageService } from '../providers/language.service';
 import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { AgmCoreModule } from "@agm/core";
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -38,7 +49,17 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderPage,
     RegisterPage,
     EnterprisesPage,
-    SettingsPage
+    SettingsPage,
+    ReferenceBookPage,
+    GoodsPage,
+    GroupsGoodsPage,
+    BeaconCommunicationPage,
+    InfoReferenceBookPage,
+    InfoEnterprisesPage,
+    ContactsPage,
+    GoodInfoPage,
+    PostPage,
+    InfoContactPage
   ],
   imports: [
     BrowserModule,
@@ -52,6 +73,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    AgmCoreModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,7 +84,17 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderPage,
     RegisterPage,
     EnterprisesPage,
-    SettingsPage
+    SettingsPage,
+    ReferenceBookPage,
+    GoodsPage,
+    GroupsGoodsPage,
+    BeaconCommunicationPage,
+    InfoReferenceBookPage,
+    InfoEnterprisesPage,
+    ContactsPage,
+    GoodInfoPage,
+    PostPage,
+    InfoContactPage
   ],
   providers: [
     StatusBar,

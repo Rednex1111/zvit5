@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-/*import { PostPage } from '../post/post';*/
+import { PostPage } from '../post/post';
 import { NavController, LoadingController, NavParams } from 'ionic-angular';
 import { WordpressService } from '../../providers/wordpress.service';
 import { AuthenticationServiceProvider } from '../../providers/authentication-service/authentication-service';
@@ -83,11 +83,11 @@ export class NewsPage {
           });
   }
 
-  /*postTapped(event, post) {
+  postTapped(event, post) {
 		this.navCtrl.push(PostPage, {
 		  item: post
 		});
-  }*/
+  }
 
   doRefresh(refresher) {
         console.log('Begin async operation', refresher);

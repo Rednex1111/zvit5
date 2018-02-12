@@ -1,0 +1,16 @@
+
+<ion-header>
+  <page-header></page-header>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let contact of contacts">
+    <ion-card-content (click)="goToMap(contact.excerpt.rendered)">
+      <p [innerHTML]="contact.title.rendered" id="{{contact.id}}"></p>
+    </ion-card-content>
+  </ion-card>
+
+
+
+</ion-content>

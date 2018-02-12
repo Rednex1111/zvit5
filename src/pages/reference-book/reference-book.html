@@ -1,0 +1,13 @@
+<ion-header>
+    <page-header></page-header>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-card *ngFor="let article of articles">
+        <ion-card-content>
+            <p [innerHTML]="article.title.rendered" id="{{article.id}}" (click)="openArticle(article.id)"></p>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

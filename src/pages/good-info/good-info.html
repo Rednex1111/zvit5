@@ -1,0 +1,41 @@
+<ion-header>
+    <page-header></page-header>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <div *ngIf="products.length > 0">
+    <ion-card *ngFor="let product of products" id="{{product.id}}">
+        <div style="display: none">{{product.term}}</div>
+        <ion-card-content >
+            <ion-card-title>{{product.name}}</ion-card-title>
+        </ion-card-content>
+        <ion-row padding style="text-align: right">
+            <ion-col col-12>
+                <ion-icon id="{{product.id}}select" class="check_prod" name="checkmark-circle"
+                          (click)="selectProduct(product)">
+                </ion-icon>
+                <ion-label color="primary" class="price">{{product.price}} грн</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <ion-item>
+        <ion-select placeholder="{{'Good_info.company' | translate}}" interface="gaming"  [ngModel]="company" (ngModelChange)="selectCompany($event)">
+            <ion-label class="title_company">{{'Good_info.select_company' | translate}}</ion-label>
+            <ion-option *ngFor="let company of companies" value="{{company.company_id}}">
+                {{company.title}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+
+    <button id="send_order" ion-button full color="primary" (click)="sendOrder()">{{'Good_info.send_order' | translate}}</button>
+    </div>
+
+    <div *ngIf="NoProductYet">
+        <ion-label class="no_data">{{'Good_info.Nodata' | translate}}</ion-label>
+    </div>
+
+</ion-content>

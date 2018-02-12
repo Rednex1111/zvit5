@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+  <!--  <ion-title>info-contact</ion-title>-->
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <agm-map style="width: 100%; height: 100%;"
+           [latitude]="origin.lat"
+           [longitude]="origin.lng"
+           [gestureHandling] = "gestureHandling"
+           [zoom]="zoom">
+    <agm-marker
+            *ngFor="let m of markers"
+            [latitude]="m.lat"
+            [longitude]="m.lng"
+            [label]="m.label">
+    </agm-marker>
+  </agm-map>
+</ion-content>
+<!--
+(markerClick)="clickedMarker(m.label)"-->

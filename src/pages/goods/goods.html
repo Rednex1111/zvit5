@@ -1,0 +1,18 @@
+<ion-header>
+  <page-header></page-header>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card *ngFor="let good of goods">
+    <ion-card-content style="margin: 0" (click)="productTapped(good.product_id)">
+      <div id="{{good.product_id}}">
+        <div *ngIf="good.image">
+          <img src='{{good.image}}' class="img_goods"/>
+        </div>
+        <p class="goods_title">{{good.title}}</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
