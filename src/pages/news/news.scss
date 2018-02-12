@@ -1,0 +1,35 @@
+page-home {
+  .content{
+    background-color: #f4f4f7;
+  }
+  
+  .toolbar-icon {
+    color: #FFF;
+    font-weight: bold;
+  }
+
+  .grid{
+    padding: 0;
+  }
+
+  .img_news{
+    float:left;
+    width: 100px;
+    height: 100px;
+    margin: 12px 7px 0 0;
+  }
+
+  .card-title-md{
+    font-size: 20px;
+  }
+
+  .more_news{
+    text-align: center;
+    text-decoration: underline !important;
+    line-height: 35px;
+  }
+
+  .content_post{
+    min-height: 60px;
+  }
+}

@@ -1,0 +1,30 @@
+<ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-2>
+          <ion-buttons item-start>
+            <button ion-button menuToggle  id="menu">
+              <ion-icon name="menu"></ion-icon>
+            </button>
+
+            <button ion-button id="back" style="display: none" (click)="getPosts()">
+              <ion-icon name="arrow-back"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>
+        <ion-col col-8 class="news_header">
+          <div id="title_page">
+          </div>
+        </ion-col>
+       <!-- <ion-col col-2>
+          <ion-buttons style="float: right;">
+            <button ion-button>
+              <ion-badge item-end color="danger" class="badge">3</ion-badge>
+              <ion-icon ios="ios-notifications" md="md-notifications" class="icon_header"></ion-icon>
+            </button>
+          </ion-buttons>
+        </ion-col>-->
+      </ion-row>
+    </ion-grid>
+</ion-navbar>
+

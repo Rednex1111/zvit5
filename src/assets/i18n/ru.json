@@ -1,0 +1,67 @@
+{
+  "SELECT_LANGUAGE": "Выбирите язык",
+  "NewsPage": "новости",
+  "ReferenceBookPage": "Справочники",
+  "EnterprisesPage": "Мои предприятия",
+  "GoodsPage": "Получить счет",
+  "BeaconCommunicationPage": "связь с маяком",
+  "ContactsPage": "наши контакты",
+  "SettingsPage": "настройки",
+  "exit": "выход",
+  "MORE": "подробнее",
+  "Beacon_communication": {
+    "depart": "Выберите отдел  компании",
+    "enterprise": "предприятие",
+    "msg": "сообщение",
+    "send": "отправить",
+    "depart_sales": "Отдел продаж",
+    "support" : "Техническая поддержка",
+    "get_certification": "Получение сертификатов"
+  },
+  "Enterprises": {
+    "search": "поиск предприятия",
+    "toastOption": "Пожалуйста, заполните все поля",
+    "addCompany": "Добавить предприятие",
+    "nameCompany": "Имя предприятия",
+    "btn_cancel": "Отмена",
+    "btn_ok": "Добавить",
+    "toastOk": "Предприятие успешно добавлено",
+    "toastErr": "Текущее MFO зарегистрировано другой компанией.",
+    "Nodata": "Добавьте, пожалуйста, ваше предприятие"
+  },
+  "News": {
+    "Nodata": "Здесь еще нет новостей"
+  },
+  "Info_Enterprises": {
+    "toastOption": "Компания успешно удалена",
+    "toastRename": "Изменения сохранены",
+    "alert_ms_title": "Вы уверены что хотите удалить предприятие ?",
+    "alert_new_title": "Редактировать название",
+    "btn_cancel": "Отмена",
+    "license": "лицензия до"
+  },
+  "Good_info": {
+    "company": "Выберите ваше предприятие",
+    "select_company": "Выберите предприятие",
+    "send_order": "Оформить заказ",
+    "Nodata": "Здесь еще нет товара"
+  },
+  "Login": {
+    "title": "С возвращением",
+    "password": "Пароль",
+    "btn_login": "Войти"
+  },
+  "Register": {
+    "title": "Регистрация",
+    "name": "Имя",
+    "password": "Пароль",
+    "repeatPassword": "Подтвердите пароль",
+    "btn_register": "Отправить",
+    "InvalidPassword": "Пароли не совпадают"
+  },
+  "Welcome": {
+    "title": "Добро пожаловать",
+    "login": "Вход",
+    "registration": "Регистрация"
+  }
+}

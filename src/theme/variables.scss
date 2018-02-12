@@ -10,7 +10,20 @@ $font-path: "../assets/fonts";
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
+.loading-md .loading-wrapper {
+  border-radius: 2px;
+  max-width: 280px;
+  max-height: 90%;
+  color: transparent !important;
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.backdrop-no-tappable{
+  opacity: 0.3 !important;
 
+}
 
 @import "ionic.globals";
 
@@ -35,12 +48,22 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #488aff,
+  headercolor:#5fb5d8,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
 );
 
+$toolbar-background: color($colors, primary);
+
+
+.no_data {
+  margin: 50% auto !important;
+  text-align: center;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.5098039215686274);
+}
 
 // App iOS Variables
 // --------------------------------------------------

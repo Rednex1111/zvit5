@@ -1,0 +1,40 @@
+page-enterprises {
+  .searchbar-md{  padding: 0; }
+
+  .icon-enterprise {
+    float: right;
+    font-size: 1em;
+    background: none;
+    padding: 0;
+    color: white;
+    margin-top: -18px;
+  }
+
+  .icon-enterprise, .mail{ padding: 0;}
+
+  .icon-enterprise-go {
+    background: none;
+    float: right;
+    margin-right: -10px;
+    margin-top: -18px;
+    padding: 0;
+  }
+
+  .item { border: none !important;}
+
+  .form{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  ion-fab[bottom] {
+    bottom: 20px;
+  }
+
+  ion-fab[right] {
+    right: 20px;
+  }
+
+
+}

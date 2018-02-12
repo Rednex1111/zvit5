@@ -1,0 +1,67 @@
+{
+  "SELECT_LANGUAGE": "Оберіть мову",
+  "NewsPage" : "Новини",
+  "ReferenceBookPage" : "Довідник",
+  "EnterprisesPage" : "Мої підприємства",
+  "GoodsPage" : "Отримати рахунок",
+  "BeaconCommunicationPage" : "Звязок з маяком",
+  "ContactsPage" : "Контакти",
+  "SettingsPage" : "Налаштування",
+  "exit" : "Вихід",
+  "MORE": "детальніше",
+  "Beacon_communication": {
+    "depart": "Виберіть відділ компанії",
+    "enterprise": "Підприємство",
+    "msg": "Повідомленя",
+    "send": "Надіслати",
+    "depart_sales": "Вiддiл продаж",
+    "support" : "Технiчна пiдтримка",
+    "get_certification": "Отримання сертифiкату"
+  },
+  "Enterprises": {
+    "search" : "Пошук підприємства",
+    "toastOption": "Будь ласка, заповніть всі поля",
+    "addCompany": "Додати підприємство",
+    "nameCompany": "Імя підприємства",
+    "btn_cancel": "Скасувати",
+    "btn_ok": "Додати",
+    "toastOk": "Підприємство успішно створено",
+    "toastErr": "Поточне MFO зареєстровано іншою компанією.",
+    "Nodata": "Додайте, будь ласка, ваше підприємство"
+  },
+  "News": {
+    "Nodata": "Новини вiдсутнi"
+  },
+  "Info_Enterprises": {
+    "toastOption": "Підприємство успішно видалено",
+    "toastRename": "Зміни збережено",
+    "alert_ms_title": "Ви впевнені що хочете видалити підприємство ?",
+    "alert_new_title": "Змiнити назву",
+    "btn_cancel": "Скасувати",
+    "license": "ліцензія до"
+  },
+  "Good_info": {
+    "company": "Виберiть ваше підприємство",
+    "select_company": "Виберіть підприємство",
+    "send_order": "Надіслати",
+    "Nodata": "Товари відсутні"
+  },
+  "Login": {
+    "title": "З поверненням!",
+    "password": "Пароль",
+    "btn_login": "Логін"
+  },
+  "Register": {
+    "title": "Реєстрація",
+    "name": "Імя",
+    "password": "Пароль",
+    "repeatPassword": "Підтвердіть пароль",
+    "btn_register": "Надіслати",
+    "InvalidPassword": "Паролі не співпадають"
+  },
+  "Welcome": {
+    "title": "Ласкаво просимо",
+    "login": "Логін",
+    "registration": "Реєстрація"
+  }
+}

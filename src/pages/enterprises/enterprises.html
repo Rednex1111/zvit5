@@ -1,0 +1,31 @@
+<ion-header>
+    <page-header></page-header>
+    <ion-searchbar full placeholder="{{'Enterprises.search' | translate}}"
+                   [(ngModel)]="myInput"
+                   (ionInput)="search_company($event)">
+    </ion-searchbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-fab right bottom>
+        <button ion-fab color="primary" (click)="addCompany()">
+            <ion-icon name="add" color="white"></ion-icon>
+        </button>
+    </ion-fab>
+
+    <ion-list>
+        <ion-item *ngFor="let company of companies" id="{{company.company_id}}">
+            <div (click)="infoTapped(company)">
+                {{company.title}}
+            </div>
+            <button icon-only class="icon-enterprise-go" (click)="infoTapped(company)">
+                <ion-icon name="arrow-forward" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+            </button>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="noData">
+        <ion-label class="no_data">{{'Enterprises.Nodata' | translate}}</ion-label>
+    </div>
+</ion-content>
+

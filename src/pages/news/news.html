@@ -1,0 +1,49 @@
+<ion-header>
+    <page-header></page-header>
+</ion-header>
+
+<ion-content class="content">
+
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ion-card *ngFor="let post of posts">
+        <ion-card-content (click)="postTapped($event, post)">
+            <div>
+                <div *ngIf="post.image">
+                    <img src="{{post.image}}" class="img_news"/>
+                </div>
+                <ion-card-title [innerHTML]="post.title"></ion-card-title>
+                <p [innerHTML]="post.content.substr(0, 80)" class="content_post"></p>
+            </div>
+        </ion-card-content>
+
+
+        <ion-row no-padding style="margin-top: 20px;">
+            <ion-col col-3>
+                <button (click)="CategoriesTaped(post.categories.category_id)" ion-button clear small color="primary" icon-start id="{{post.categories.category_id}}">
+                    {{post.categories.name}}
+                </button>
+            </ion-col>
+            <ion-col col-5 (click)="postTapped($event, post)">
+                <ion-label class="more_news">{{"MORE" | translate}}</ion-label>
+            </ion-col>
+            <ion-col col-4>
+                <button ion-button clear small color="primary" style="float: right">
+                    {{post.date.substr(0, 10)}}
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-card>
+
+    <div *ngIf="!show_post">
+        <ion-label class="no_data">{{'News.Nodata' | translate}}</ion-label>
+    </div>
+    <!--  <ion-infinite-scroll [enabled]="morePagesAvailable" (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more posts ...">
+        </ion-infinite-scroll-content>
+      </ion-infinite-scroll>-->
+</ion-content>
