@@ -1,3 +1,7 @@
+//default module
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { IonicStorageModule } from '@ionic/storage';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule, forwardRef } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -20,10 +24,6 @@ import { PostPage} from "../pages/post/post";
 import { InfoReferenceBookPage} from "../pages/info-reference-book/info-reference-book";
 import { InfoEnterprisesPage} from "../pages/info-enterprises/info-enterprises";
 import { InfoContactPage} from "../pages/info-contact/info-contact";
-//default module
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { IonicStorageModule } from '@ionic/storage';
 
 //my import module
 import { AuthenticationServiceProvider } from '../providers/authentication-service/authentication-service';
@@ -34,7 +34,8 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AgmCoreModule } from "@agm/core";
-
+import { Sim } from "@ionic-native/sim";
+import { FCM } from "@ionic-native/fcm";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -98,6 +99,8 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [
     StatusBar,
+    Sim,
+    FCM,
     SplashScreen,
     LanguageService,
     forwardRef(() => WordpressService),

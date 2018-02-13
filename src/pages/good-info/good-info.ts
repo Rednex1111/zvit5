@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
-import {
-    Toast, ToastOptions, LoadingController, NavController, NavParams, AlertController,
-    ToastController
-} from 'ionic-angular';
+import { ToastOptions, LoadingController, NavController, NavParams, AlertController,
+    ToastController } from 'ionic-angular';
 import {WordpressService} from "../../providers/wordpress.service";
 import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";
 import {EnterprisesPage} from "../enterprises/enterprises";

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {LoadingController, NavController, NavParams} from 'ionic-angular';
+import {LoadingController, NavController} from 'ionic-angular';
 import {WordpressService} from '../../providers/wordpress.service';
 import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
 import {GoodsPage} from "../goods/goods";

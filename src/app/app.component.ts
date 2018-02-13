@@ -12,6 +12,9 @@ import { SettingsPage } from "../pages/settings/settings";
 import { TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import {WelcomePage} from "../pages/welcome/welcome";
 import {AuthenticationServiceProvider} from '../providers/authentication-service/authentication-service';
+import { FCM } from "@ionic-native/fcm";
+import { AlertController } from "ionic-angular";
+import {Sim} from "@ionic-native/sim";
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +23,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-  textDir: string = "ltr";
+  //textDir: string = "ltr";
   lang: string;
   public pages: Array<{ title: string, component: any, icon: string }>;
 
@@ -29,12 +32,19 @@ export class MyApp {
                public statusBar: StatusBar,
                public splashScreen: SplashScreen,
                public translate: TranslateService,
-         /*     public alertCtrl: AlertController,
-              public fcm: FCM,*/
+              public alertCtrl: AlertController,
+              public fcm: FCM,
+              public sim: Sim,
               public authenticationService: AuthenticationServiceProvider) {
 
     this.initializeApp();
-
+    /*this.sim.getSimInfo().then(
+      (info) => {
+        console.log('phone12 =' + JSON.stringify(info));
+        console.log('phone =' + JSON.stringify(info.phoneNumber));
+      },
+      (err) => console.log('Unable to get sim info: ' + JSON.stringify(err))
+    );*/
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'NewsPage', component: NewsPage, icon: 'logo-designernews'},
@@ -46,7 +56,7 @@ export class MyApp {
       {title: 'SettingsPage', component: SettingsPage, icon: 'settings'},
       {title: 'exit', component: 'exit', icon: 'log-out'}
     ];
-
+    this.push();
   }
 
   initializeApp() {
@@ -64,15 +74,15 @@ export class MyApp {
       });
 
     //this is to determine the text direction depending on the selected language
-    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+   /* this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.textDir = event.lang == 'ar' ? 'rtl' : 'ltr';
-    });
+    });*/
 
 
     this.authenticationService.getUser()
       .then(
         data => {
-          console.log(data);
+          //console.log(data);
           if (data) {
             this.rootPage = NewsPage;
           } else {
@@ -87,7 +97,6 @@ export class MyApp {
     // Here you can do any higher level native things you might need.
     this.statusBar.styleDefault();
     this.splashScreen.hide();
-   // this.push();
   }
 
 
@@ -104,5 +113,39 @@ export class MyApp {
         );
       })
     }
+  }
+
+  push() {
+    this.fcm.onNotification().subscribe(data => {
+      if (data.wasTapped) {
+        let alert_ms = this.alertCtrl.create({
+          title: JSON.stringify(data.body),
+          buttons: [
+            {
+              text: 'Ok',
+              handler: data_company => {
+                this.nav.setRoot(EnterprisesPage);
+              }
+            }
+          ]
+        });
+        alert_ms.present();
+      } else {
+        let alert_ms = this.alertCtrl.create({
+          title: JSON.stringify(data.body),
+          buttons: [
+            {
+              text: 'Ok',
+              handler: data_company => {
+                this.nav.setRoot(EnterprisesPage);
+              }
+            }
+          ]
+        });
+        alert_ms.present();
+      }
+    }, error => {
+      console.log("error is " + JSON.stringify(error));
+    })
   }
 }

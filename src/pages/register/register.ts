@@ -4,8 +4,8 @@ import {Platform, NavController, LoadingController, AlertController} from 'ionic
 import {Validators, FormBuilder, FormGroup, FormControl} from '@angular/forms';
 import {AuthenticationServiceProvider} from '../../providers/authentication-service/authentication-service';
 import { EnterprisesPage } from "../enterprises/enterprises";
-/*import { Sim } from '@ionic-native/sim';
-import { FCM } from "@ionic-native/fcm";*/
+import { Sim } from '@ionic-native/sim';
+import { FCM } from "@ionic-native/fcm";
 import { WordpressService } from "../../providers/wordpress.service";
 
 
@@ -21,10 +21,10 @@ export class RegisterPage {
     error_message: string;
     device_token: string;
     constructor(public navCtrl: NavController,
-                //private sim: Sim,
+                private sim: Sim,
                 public loadingCtrl: LoadingController,
                 public alertCtrl: AlertController,
-                //public fcm: FCM,
+                public fcm: FCM,
                 public platform: Platform,
                 public authenticationService: AuthenticationServiceProvider,
                 public WPService: WordpressService,
@@ -32,22 +32,23 @@ export class RegisterPage {
     }
 
     ionViewWillLoad() {
-        /*this.fcm.getToken().then(token => {
+        this.fcm.getToken().then(token => {
                 this.device_token = token;
-                console.log(token);
+                console.log('token device =' + token);
             }
         );
 
         this.sim.getSimInfo().then(
             (info) => {
+              console.log('phone =' + JSON.stringify(info.phoneNumber));
                 var re = /"/gi;
                 this.numberPhone = JSON.stringify(info.phoneNumber).replace(re,'');
             },
             (err) => console.log('Unable to get sim info: ' + JSON.stringify(err))
-        );*/
+        );
 
        this.authenticationService.getToken().subscribe((res: any)=> {
-         console.log(res.token);
+         console.log('token admin=' + res.token);
             this.token = res.token;
         });
         /*this.authenticationService.getNonce().subscribe((res: any) => {

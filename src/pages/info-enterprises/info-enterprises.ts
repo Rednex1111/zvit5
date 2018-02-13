@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {ToastOptions, ToastController, NavController, NavParams, AlertController} from 'ionic-angular';
 import {WordpressService} from "../../providers/wordpress.service";
 import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "258497106200",
+    "firebase_url": "https://mayakwp.firebaseio.com",
+    "project_id": "mayakwp",
+    "storage_bucket": "mayakwp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258497106200:android:fc5e7818955d74b5",
+        "android_client_info": {
+          "package_name": "ionic.mayak.wordpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "258497106200-hda89m7pq09ca2nkuddtn3f4liueujbv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBY6W8ovDd7DX8Gwyljfxx0rSkkIea8Xq4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

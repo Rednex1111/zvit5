@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ToastController, ToastOptions, AlertController, LoadingController, NavController} from 'ionic-angular';
+import {ToastController, ToastOptions, LoadingController, NavController} from 'ionic-angular';
 import {WordpressService} from "../../providers/wordpress.service";
 import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";
 import {NewsPage} from "../news/news";
@@ -72,7 +72,7 @@ export class BeaconCommunicationPage {
 
         this.email_info.message = this.msg;
         if (!this.msg || !this.email_info.email || !this.email_info.subject) {
-           let toast =  this.toast.create(this.toastOptionErr).present();
+           //let toast =  this.toast.create(this.toastOptionErr).present();
         } else {
             loading.present();
             this.WPService.sendMail(this.data_user, this.email_info)
