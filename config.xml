@@ -2,7 +2,7 @@
 <widget id="ionic.mayak.wordpress" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Маяк Ассистент</name>
     <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <author email="zhuravlev125@gmail.com" href="">Vladimir Zhuravlev</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -85,4 +85,5 @@
     <plugin name="cordova-plugin-sim" spec="^1.3.3" />
     <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <allow-navigation href="http://10.0.0.26:8100" />
+    <allow-navigation href="http://192.168.0.51:8100" />
 </widget>

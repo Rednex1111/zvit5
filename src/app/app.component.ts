@@ -38,13 +38,6 @@ export class MyApp {
               public authenticationService: AuthenticationServiceProvider) {
 
     this.initializeApp();
-    /*this.sim.getSimInfo().then(
-      (info) => {
-        console.log('phone12 =' + JSON.stringify(info));
-        console.log('phone =' + JSON.stringify(info.phoneNumber));
-      },
-      (err) => console.log('Unable to get sim info: ' + JSON.stringify(err))
-    );*/
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'NewsPage', component: NewsPage, icon: 'logo-designernews'},
@@ -72,7 +65,10 @@ export class MyApp {
           this.translate.use(res.language);
         }
       });
-
+    this.sim.requestReadPermission().then(
+      () => console.log('Permission granted '),
+      () => console.log('Permission denied ')
+    );
     //this is to determine the text direction depending on the selected language
    /* this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.textDir = event.lang == 'ar' ? 'rtl' : 'ltr';
