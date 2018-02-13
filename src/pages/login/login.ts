@@ -4,7 +4,7 @@ import { Platform, NavController, LoadingController } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { WordpressService } from '../../providers/wordpress.service';
 import { AuthenticationServiceProvider } from '../../providers/authentication-service/authentication-service';
-/*import { FCM } from "@ionic-native/fcm";*/
+import { FCM } from "@ionic-native/fcm";
 
 
 @Component({
@@ -25,7 +25,7 @@ export class LoginPage {
     public loadingCtrl: LoadingController,
     public formBuilder: FormBuilder,
     public WPService: WordpressService,
-    /*public fcm: FCM,*/
+    public fcm: FCM,
     public authenticationService: AuthenticationServiceProvider
   ) {}
 
@@ -41,10 +41,10 @@ export class LoginPage {
       password: new FormControl('', Validators.required)
     });
 
-  /*  this.fcm.getToken().then(token => {
+    this.fcm.getToken().then(token => {
         this.device_token = token;
       }
-    );*/
+    );
   }
 
   login(value){

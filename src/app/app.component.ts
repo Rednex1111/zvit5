@@ -14,7 +14,6 @@ import {WelcomePage} from "../pages/welcome/welcome";
 import {AuthenticationServiceProvider} from '../providers/authentication-service/authentication-service';
 import { FCM } from "@ionic-native/fcm";
 import { AlertController } from "ionic-angular";
-import {Sim} from "@ionic-native/sim";
 
 @Component({
   templateUrl: 'app.html'
@@ -34,7 +33,6 @@ export class MyApp {
                public translate: TranslateService,
               public alertCtrl: AlertController,
               public fcm: FCM,
-              public sim: Sim,
               public authenticationService: AuthenticationServiceProvider) {
 
     this.initializeApp();
@@ -65,10 +63,7 @@ export class MyApp {
           this.translate.use(res.language);
         }
       });
-    this.sim.requestReadPermission().then(
-      () => console.log('Permission granted '),
-      () => console.log('Permission denied ')
-    );
+
     //this is to determine the text direction depending on the selected language
    /* this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.textDir = event.lang == 'ar' ? 'rtl' : 'ltr';
