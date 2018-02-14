@@ -36,15 +36,17 @@ export class ContactsPage {
         );
   }
 
-  goToMap(Coordinate){
-      let regExp = /[<p>/\n]/g;
+  goToMap(id){
+    console.log(id);
+    this.navCtrl.push(InfoContactPage, {id: id});
+     /* let regExp = /[<p>/\n]/g;
 
       Coordinate = Coordinate.replace(regExp, '').split(' ');
-      //  console.log(Coordinate);
+      console.log(Coordinate);
       this.navCtrl.push(InfoContactPage, {
         x: Coordinate[0],
         y: Coordinate[1]
-      });
+      });*/
   }
 
 }

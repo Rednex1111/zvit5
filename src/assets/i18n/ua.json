@@ -4,7 +4,7 @@
   "ReferenceBookPage" : "Довідник",
   "EnterprisesPage" : "Мої підприємства",
   "GoodsPage" : "Отримати рахунок",
-  "BeaconCommunicationPage" : "Звязок з маяком",
+  "BeaconCommunicationPage" : "Відділ продажу",
   "ContactsPage" : "Контакти",
   "SettingsPage" : "Налаштування",
   "exit" : "Вихід",
@@ -44,6 +44,8 @@
     "company": "Виберiть ваше підприємство",
     "select_company": "Виберіть підприємство",
     "send_order": "Надіслати",
+    "send_order_email": "Рахунок успішно відправлений на Ваш e-mail",
+    "warn": "Переконайтеся що обраний продукт і компанія",
     "Nodata": "Товари відсутні"
   },
   "Login": {

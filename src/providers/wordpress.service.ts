@@ -82,6 +82,11 @@ export class WordpressService {
             .map(res => res);
     }
 
+    getContactInfoById(id) {
+        return this.http.get(Config.GET_CONTACT_INFO + id)
+            .map(res => res);
+    }
+
     getReferenceBook() {
         return this.http.get(Config.GET_REFERENCE_BOOK)
             .map(res => res);

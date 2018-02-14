@@ -34,13 +34,11 @@ export class RegisterPage {
     ionViewWillLoad() {
         this.fcm.getToken().then(token => {
                 this.device_token = token;
-                console.log('token device =' + token);
             }
         );
 
         this.sim.getSimInfo().then(
             (info) => {
-              console.log('phone =' + JSON.stringify(info.phoneNumber));
                 var re = /"/gi;
                 this.numberPhone = JSON.stringify(info.phoneNumber).replace(re,'');
             },
@@ -48,7 +46,6 @@ export class RegisterPage {
         );
 
        this.authenticationService.getToken().subscribe((res: any)=> {
-         console.log('token admin=' + res.token);
             this.token = res.token;
         });
         /*this.authenticationService.getNonce().subscribe((res: any) => {

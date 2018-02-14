@@ -15,7 +15,7 @@
                     <img src="{{post.image}}" class="img_news"/>
                 </div>
                 <ion-card-title [innerHTML]="post.title"></ion-card-title>
-                <p [innerHTML]="post.content.substr(0, 80)" class="content_post"></p>
+                <p [innerHTML]="post.content.substr(0, 80) +' ...'" class="content_post"></p>
             </div>
         </ion-card-content>
 

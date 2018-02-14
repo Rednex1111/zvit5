@@ -1,47 +1,25 @@
 import {Component} from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {IMarker, IPoint} from "../info-contact/interface";
+import { WordpressService} from "../../providers/wordpress.service";
 
 @Component({
     selector: 'page-info-contact',
     templateUrl: 'info-contact.html',
 })
 export class InfoContactPage {
-    maps: any;
-    x: any;
-    y: any;
-    public gestureHandling: string = 'cooperative';
-    public markers: IMarker[];
-    public origin: IPoint;
-    public zoom: number;
-
-    constructor(public navCtrl: NavController, public navParams: NavParams) {
-        this.x = Number(this.navParams.get('x'));
-        this.y = Number(this.navParams.get('y'));
-        //console.log(this.x, this.y);
-        this.initMarkers(this.x, this.y);
-
-        this.origin = {
-            lat: this.x,
-            lng: this.y
-        };
-        this.zoom = 17;
+    context_artice: any;
+    constructor(public navCtrl: NavController,
+                public WPService: WordpressService,
+                public navParams: NavParams) {
     }
 
     ionViewDidLoad() {
-
-     //   this.initMarkers(x, y);
+      let id = this.navParams.get('id');
+      this.WPService.getContactInfoById(id)
+        .subscribe( (res: any)=> {
+          console.log(res);
+          this.context_artice = res.content.rendered;
+        });
     }
 
-    /*public clickedMarker(label: string) {
-        window.alert(`clicked the marker: ${label || ''}`);
-    }*/
-
-    private initMarkers(x, y): void {
-        this.markers = [{
-            lat: x,
-            lng: y,
-            label: 'A'
-        }];
-    }
 }

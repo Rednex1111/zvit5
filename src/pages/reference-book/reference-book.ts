@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoadingController, NavController } from 'ionic-angular';
 import { WordpressService } from "../../providers/wordpress.service";
 import { InfoReferenceBookPage } from "../info-reference-book/info-reference-book";
+import { AuthenticationServiceProvider } from "../../providers/authentication-service/authentication-service";
 
 @Component({
   selector: 'page-reference-book',
@@ -10,11 +11,20 @@ import { InfoReferenceBookPage } from "../info-reference-book/info-reference-boo
 export class ReferenceBookPage {
   articles = [];
   url: any;
-  content_true: boolean;
+  lang = 'ua';
 
     constructor(public navCtrl: NavController,
                 public loadingCtrl: LoadingController,
+                public authenticationService: AuthenticationServiceProvider,
                 public WPService: WordpressService) {
+      authenticationService.getUserLang()
+        .then(res => {
+          if (!res) {
+            this.lang = 'ua';
+          } else {
+            this.lang = res.language;
+          }
+        });
   }
 
   ionViewDidLoad() {
@@ -30,6 +40,8 @@ export class ReferenceBookPage {
                         this.articles.push(data[i])
                     }
                 }
+                console.log(this.articles);
+            this.articles = this.WPService.parseTextLang(this.articles, this.lang);
                   loading.dismiss();
               }
           )

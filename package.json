@@ -1,8 +1,8 @@
 {
   "name": "Mayak",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "http://ionicframework.com/",
+  "author": "Vladimir Zhuravlev",
+  "homepage": "-",
   "private": true,
   "scripts": {
     "clean": "ionic-app-scripts clean",
