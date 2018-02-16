@@ -1,6 +1,6 @@
 //config constants
-export const SITE_URL = 'http://zvit.pixy.pro/';
-export const API_URL = 'index.php/api/user/';
+export const SITE_URL = 'http://bestzvit.dp.ua/';
+export const API_URL = 'api/user/';
 export const WORDPRESS_NONCE = SITE_URL + 'api/get_nonce/?controller=user&method=register';
 export const LOGIN = SITE_URL + 'api/user/login/';
 export const REGISTER = SITE_URL + 'wp-json/wp/v2/users';

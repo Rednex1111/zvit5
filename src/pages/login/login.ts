@@ -50,9 +50,10 @@ export class LoginPage {
   login(value){
     let loading = this.loadingCtrl.create();
     loading.present();
-
+    console.log(value.password, value.username);
     this.authenticationService.doLogin(value.username, value.password)
       .subscribe((res:any) => {
+          console.log(JSON.stringify(res));
           this.cookie = res.response.cookie;
           this.user_id = res.response.user_id;
           this.authenticationService.setUser({
@@ -73,7 +74,7 @@ export class LoginPage {
         err => {
           loading.dismiss();
           this.error_message = "Invalid credentials.";
-          console.log(err);
+          console.log(JSON.stringify(err));
         })
   }
 

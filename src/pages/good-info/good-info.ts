@@ -79,7 +79,7 @@ export class GoodInfoPage {
                 console.log((this.products));
 
                 loading.dismiss();
-                this.WPService.getCompanies(data.user_id, data.nonce, data.cookie)
+                this.WPService.getCompanies(data.user_id, data.cookie)
                   .subscribe((res: any) => {
                     if (res.response.length <= 0) {
                       console.log('no company');

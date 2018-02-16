@@ -43,30 +43,34 @@ export class AuthenticationServiceProvider {
     return this.http.get(Config.WORDPRESS_NONCE);
   }
 
-  /*    doLogin(username, password, nonce) {
-          let header: Headers = new Headers();
+   /*   doLogin(username, password) {
+        const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST'
+          })
+        };
+      /!*    let header: Headers = new Headers();
           header.append("Access-Control-Allow-Origin", "http://zvit.pixy.pro/");
           header.append("Access-Control-Allow-Methods", "POST");
           header.append("Content-Type", "application/json");
           header.append("Accept", "application/json");
-          header.append("Cache-Control", "no-cache");
+          header.append("Cache-Control", "no-cache");*!/
 
-          let options = new RequestOptions({headers: header});
-          this.http.delete.arguments('X-Requested-With');
           return this.http.post(Config.LOGIN, {
               username: username,
               password: password,
-              nonce: nonce,
               insecure: 'cool'
-          }, options)
+          }, httpOptions)
       }*/
 
   doLogin(username, password){
-    return this.http.get(Config.LOGIN+
+    return this.http.get(Config.LOGIN +
       '?username='+username +
       '&password='+ password +
-/*      '&nonce='+ nonce +*/
       '&insecure='+ 'cool')
+      .map(res => res);
   }
 
   doRegister(displayName, email, password, number, token) {

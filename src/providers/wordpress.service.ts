@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import * as Config from '../config';
 
 
@@ -11,8 +11,10 @@ export class WordpressService {
 
     getRecentPosts(nonce, cookie) {
         return this.http.get(
-            Config.GET_POSTS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie)
+            Config.GET_POSTS
+            + '?insecure=cool'
+            + '&cookie=' + cookie,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -22,44 +24,72 @@ export class WordpressService {
             '?nonce=' + nonce +
             '&insecure=cool' +
             '&cookie=' + cookie +
-            '&category_id=' + category_id)
+            '&category_id=' + category_id,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getPostData(nonce, cookie, post_id) {
         return this.http.get(Config.GET_POST + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&post_id=' + post_id)
+            + '&insecure=cool' + '&cookie=' + cookie + '&post_id=' + post_id,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getProduct(nonce, cookie, id) {
         return this.http.get(Config.GET_PRODUCTS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id)
+            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getGroups(nonce, cookie) {
         return this.http.get(Config.GET_GROUPS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie)
+            + '&insecure=cool' + '&cookie=' + cookie,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
-    getCompanies(user_id, nonce, cookie) {
-        return this.http.get(Config.GET_COMPANIES + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&user_id=' + user_id)
-            .map(res => res);
+    getCompanies(user_id, cookie) {
+      return this.http.get(Config.GET_COMPANIES
+        + '?insecure=cool'
+        + '&cookie=' + cookie
+        + '&user_id=' + user_id, { headers: { 'Cache-Control' : 'no-cache' } });
+
+     /* const httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'POST'
+        })
+      };
+      alert(JSON.stringify(this.http.post(Config.GET_COMPANIES,{
+        insecure: 'cool',
+        cookie: cookie,
+        user_id: user_id,
+      },httpOptions).subscribe(res=>{})));
+
+      return  this.http.post(Config.GET_COMPANIES,{
+        insecure: 'cool',
+        cookie: cookie,
+        user_id: user_id,
+      },httpOptions);*/
+
+
     }
 
     createCompany(user_id, nonce, cookie, title, mfo) {
         return this.http.get(Config.CREATE_COMPANY + '?nonce=' + nonce
             + '&insecure=cool' + '&cookie=' + cookie + '&user_id=' + user_id +
-            '&title=' + title + '&mfo=' + mfo)
+            '&title=' + title + '&mfo=' + mfo,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getProductInfo(product_id, nonce, cookie) {
         return this.http.get(Config.GET_PRODUCT_INFO + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&product_id=' + product_id)
+            + '&insecure=cool' + '&cookie=' + cookie + '&product_id=' + product_id
+          , { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -73,27 +103,28 @@ export class WordpressService {
             '&company_id=' + data.company_id +
             '&product[name]=' + data.product[0].name +
             '&product[term]=' + data.product[0].term +
-            '&product[price]=' + data.product[0].price
+            '&product[price]=' + data.product[0].price,
+          { headers: { 'Cache-Control' : 'no-cache' } }
         ).map(res => res);
     }
 
     getContactInfo() {
-        return this.http.get(Config.GET_CONTACT_INFO)
+        return this.http.get(Config.GET_CONTACT_INFO, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getContactInfoById(id) {
-        return this.http.get(Config.GET_CONTACT_INFO + id)
+        return this.http.get(Config.GET_CONTACT_INFO + id, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getReferenceBook() {
-        return this.http.get(Config.GET_REFERENCE_BOOK)
+        return this.http.get(Config.GET_REFERENCE_BOOK, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getReferenceBookById(id) {
-        return this.http.get(Config.GET_REFERENCE_BOOK + id)
+        return this.http.get(Config.GET_REFERENCE_BOOK + id, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -103,7 +134,8 @@ export class WordpressService {
             '&insecure=cool' +
             '&cookie=' + user.cookie +
             '&user_id=' + user.user_id +
-            '&company_id=' + company)
+            '&company_id=' + company,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -112,7 +144,8 @@ export class WordpressService {
             '?insecure=cool' +
             '&cookie=' + cookie +
             '&company_id=' + company_id +
-            '&title=' + title)
+            '&title=' + title,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -122,7 +155,8 @@ export class WordpressService {
             '&insecure=' + 'cool' +
             '&cookie=' + data.cookie +
             '&user_id=' + data.user_id +
-            '&company_id=' + company_id
+            '&company_id=' + company_id,
+          { headers: { 'Cache-Control' : 'no-cache' } }
         ).map(res => res);
     }
 
@@ -133,7 +167,8 @@ export class WordpressService {
             '&cookie=' + data_user.cookie +
             '&email=' + email_info.email +
             '&subject=' + email_info.subject +
-            '&message=' + email_info.message
+            '&message=' + email_info.message,
+          { headers: { 'Cache-Control' : 'no-cache' } }
         ).map(res => res);
     }
 
@@ -144,7 +179,8 @@ export class WordpressService {
             '&cookie=' + cookie +
             '&os_type=' + platform +
             '&token=' + device_token +
-            '&user_id=' + user_id);
+            '&user_id=' + user_id,
+          { headers: { 'Cache-Control' : 'no-cache' } });
     }
 
     parseTextLang(array, lang){
