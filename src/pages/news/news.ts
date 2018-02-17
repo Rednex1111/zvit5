@@ -30,7 +30,7 @@ export class NewsPage {
       authenticationService.getUserLang()
           .then(res => {
               if (!res) {
-                  this.lang = 'ua';
+                  this.lang = 'uk';
               } else {
                   this.lang = res.language;
               }

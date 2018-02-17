@@ -12,11 +12,19 @@ import {GoodsPage} from "../goods/goods";
 export class GroupsGoodsPage {
     groups = [];
     group_id: string;
-
+    lang: any;
     constructor(public authenticationService: AuthenticationServiceProvider,
                 public navCtrl: NavController,
                 public loadingCtrl: LoadingController,
                 public wordpressService: WordpressService,) {
+      authenticationService.getUserLang()
+        .then(res => {
+          if (!res) {
+            this.lang = 'uk';
+          } else {
+            this.lang = res.language;
+          }
+        });
     }
 
     ionViewDidLoad() {
@@ -34,6 +42,7 @@ export class GroupsGoodsPage {
                                 this.group_id = group.group_id;
                                 this.groups.push(group);
                             }
+                          this.groups = this.wordpressService.parseTextLang(this.groups, this.lang);
                             loading.dismiss();
                         });
                 });

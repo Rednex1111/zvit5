@@ -45,7 +45,7 @@ export class BeaconCommunicationPage {
             .then(data => {
                 this.data_user.cookie = data.cookie;
                 this.data_user.nonce = data.nonce;
-                this.WPService.getCompanies(data.user_id, data.nonce, data.cookie)
+                this.WPService.getCompanies(data.user_id, data.cookie)
                     .subscribe((res:any) => {
                         if (res.response.length <= 0) {
                             console.log('no data');

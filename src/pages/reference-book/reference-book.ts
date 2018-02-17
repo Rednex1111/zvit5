@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoadingController, NavController } from 'ionic-angular';
 import { WordpressService } from "../../providers/wordpress.service";
 import { InfoReferenceBookPage } from "../info-reference-book/info-reference-book";
+import { AuthenticationServiceProvider } from "../../providers/authentication-service/authentication-service";
 
 @Component({
   selector: 'page-reference-book',
@@ -10,11 +11,21 @@ import { InfoReferenceBookPage } from "../info-reference-book/info-reference-boo
 export class ReferenceBookPage {
   articles = [];
   url: any;
-  content_true: boolean;
+  cookie: any;
+  lang = 'ua';
 
     constructor(public navCtrl: NavController,
                 public loadingCtrl: LoadingController,
+                public authenticationService: AuthenticationServiceProvider,
                 public WPService: WordpressService) {
+      authenticationService.getUserLang()
+        .then(res => {
+          if (!res) {
+            this.lang = 'uk';
+          } else {
+            this.lang = res.language;
+          }
+        });
   }
 
   ionViewDidLoad() {
@@ -23,21 +34,29 @@ export class ReferenceBookPage {
       });
       loading.present();
       /*const regex = /<a *?href="(.*?)".*?<\/a>/;*/
-      this.WPService.getReferenceBook()
-          .subscribe((data: any) => {
-                for(let i = 0; i < data.length; i++){
-                    if(data[i].parent == 11){
-                        this.articles.push(data[i])
-                    }
+    this.authenticationService.getUser()
+      .then(
+        res => {
+          this.cookie = res.cookie;
+          this.WPService.getReferenceBook(res.cookie)
+            .subscribe((data: any) => {
+                for(let reference of data.response.pages){
+                  this.articles.push(reference)
+
                 }
-                  loading.dismiss();
+                this.articles = this.WPService.parseTextLang(this.articles, this.lang);
+                loading.dismiss();
               }
-          )
+            )
+        }
+      );
+
   }
 
     openArticle(id){
         this.navCtrl.push(InfoReferenceBookPage, {
-            id: id
+            id: id,
+            cookie: this.cookie,
         });
     }
 

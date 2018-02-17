@@ -7,7 +7,7 @@ export class LanguageService {
 
    constructor() {
      this.languages.push(
-       {name: "Українська", code: "ua"},
+       {name: "Українська", code: "uk"},
        {name: "Русский", code: "ru"}
      );
    }

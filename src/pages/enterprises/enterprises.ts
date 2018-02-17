@@ -11,7 +11,6 @@ import {TranslateService} from "@ngx-translate/core";
   templateUrl: 'enterprises.html',
 })
 export class EnterprisesPage {
-  NoDataYet: boolean;
   companies: Array<any> = new Array<any>();
   data_of_company: any;
   toastOption: ToastOptions;
@@ -28,15 +27,13 @@ export class EnterprisesPage {
               public loadingCtrl: LoadingController,
               public WPService: WordpressService,
               public AuthenticationService: AuthenticationServiceProvider) {
-
-
   }
 
   ionViewDidLoad() {
     this.AuthenticationService.getUserLang()
       .then(res => {
         if (!res) {
-          this.lang = 'ru';
+          this.lang = 'uk';
           this.loadEnterprise();
         } else {
           this.lang = res.language;
@@ -50,38 +47,34 @@ export class EnterprisesPage {
   }
 
   loadEnterprise() {
-    //console.log(this.lang);
-    //console.log(this.translate.store.translations[`${this.lang}`]);
     this.Enterprise_translate = this.translate.store.translations[this.lang].Enterprises;
-
-    this.NoDataYet = false;
     this.AuthenticationService.getUser().then(
       data => {
-        console.log(data);
+        let loading = this.loadingCtrl.create({
+          spinner: 'bubbles'
+        });
         if (data) {
-          /*if (!(this.companies.length > 0)) {
-            let loading = this.loadingCtrl.create({
-              spinner: 'bubbles'
-            });
             loading.present();
-            this.WPService.getCompanies(data.user_id, data.nonce, data.cookie)
+            this.WPService.getCompanies(data.user_id, data.cookie)
               .subscribe((res: any) => {
                 if (res.response.companies) {
                   this.noData = false;
+                 // alert(JSON.stringify(res.response.companies));
                   this.data_of_company = res.response.companies;
-                  this.initializeCompany(this.data_of_company);
+                  this.initializeCompany(res.response.companies);
                   loading.dismiss();
                 } else {
                   this.noData = true;
                   loading.dismiss();
                 }
               })
-          }*/
         } else {
           console.log('no data');
+          loading.dismiss();
         }
 
-      }, error => {
+      },
+      error => {
         console.log(error)
       }
     )

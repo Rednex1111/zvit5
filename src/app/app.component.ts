@@ -22,7 +22,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any;
-  //textDir: string = "ltr";
+  textDir: string = "ltr";
   lang: string;
   public pages: Array<{ title: string, component: any, icon: string }>;
 
@@ -54,9 +54,9 @@ export class MyApp {
     this.authenticationService.getUserLang()
       .then(res => {
         if (!res) {
-          this.translate.setDefaultLang('ua');
-          this.translate.use('ua');
-          this.lang = 'ua';
+          this.translate.setDefaultLang('uk');
+          this.translate.use('uk');
+          this.lang = 'uk';
         } else {
           this.lang = res.language;
           this.translate.setDefaultLang(res.language);
@@ -65,9 +65,9 @@ export class MyApp {
       });
 
     //this is to determine the text direction depending on the selected language
-   /* this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+    this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.textDir = event.lang == 'ar' ? 'rtl' : 'ltr';
-    });*/
+    });
 
 
     this.authenticationService.getUser()

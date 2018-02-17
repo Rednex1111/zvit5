@@ -15,15 +15,13 @@
                     <img src="{{post.image}}" class="img_news"/>
                 </div>
                 <ion-card-title [innerHTML]="post.title"></ion-card-title>
-                <p [innerHTML]="post.content.substr(0, 80)" class="content_post"></p>
+                <p [innerHTML]="post.content.substr(0, 80) +' ...'" class="content_post"></p>
             </div>
         </ion-card-content>
-
-
         <ion-row no-padding style="margin-top: 20px;">
             <ion-col col-3>
-                <button (click)="CategoriesTaped(post.categories.category_id)" ion-button clear small color="primary" icon-start id="{{post.categories.category_id}}">
-                    {{post.categories.name}}
+                <button (click)="CategoriesTaped(post.category_id)" ion-button clear small color="primary" icon-start id="{{post.category_id}}">
+                    {{post.category_name}}
                 </button>
             </ion-col>
             <ion-col col-5 (click)="postTapped($event, post)">
@@ -40,10 +38,5 @@
     <div *ngIf="!show_post">
         <ion-label class="no_data">{{'News.Nodata' | translate}}</ion-label>
     </div>
-    <!--  <ion-infinite-scroll [enabled]="morePagesAvailable" (ionInfinite)="doInfinite($event)">
-        <ion-infinite-scroll-content
-        loadingSpinner="bubbles"
-        loadingText="Loading more posts ...">
-        </ion-infinite-scroll-content>
-      </ion-infinite-scroll>-->
+
 </ion-content>

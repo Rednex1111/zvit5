@@ -6,8 +6,8 @@
 
 <ion-content>
   <ion-card *ngFor="let contact of contacts">
-    <ion-card-content (click)="goToMap(contact.excerpt.rendered)">
-      <p [innerHTML]="contact.title.rendered" id="{{contact.id}}"></p>
+    <ion-card-content (click)="goToMap(contact.post_id)">
+      <p [innerHTML]="contact.title" id="{{contact.post_id}}"></p>
     </ion-card-content>
   </ion-card>
 

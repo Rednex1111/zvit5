@@ -14,12 +14,21 @@ export class GoodsPage {
 
   goods = [];
   product_id: string;
+  lang: any;
 
   constructor(public authenticationService: AuthenticationServiceProvider,
               public navCtrl: NavController,
               public navParam: NavParams,
               public loadingCtrl: LoadingController,
               public wordpressService: WordpressService,) {
+    authenticationService.getUserLang()
+      .then(res => {
+        if (!res) {
+          this.lang = 'uk';
+        } else {
+          this.lang = res.language;
+        }
+      });
   }
 
   ionViewDidLoad() {
@@ -38,6 +47,8 @@ export class GoodsPage {
                               this.product_id = good.product_id;
                               this.goods.push(good);
                           }
+                        this.goods = this.wordpressService.parseTextLang(this.goods, this.lang);
+                        console.log(this.goods);
                           loading.dismiss();
                       });
               });

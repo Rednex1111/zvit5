@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { WordpressService } from "../../providers/wordpress.service";
 import { InfoContactPage } from "../info-contact/info-contact";
+import { AuthenticationServiceProvider } from "../../providers/authentication-service/authentication-service";
 
 @Component({
   selector: 'page-contacts',
@@ -11,10 +12,21 @@ import { InfoContactPage } from "../info-contact/info-contact";
 export class ContactsPage {
   contacts = [];
   title: string;
+  lang: any;
+  cookie: any;
 
   constructor(public navCtrl: NavController,
               public WPService: WordpressService,
+              public authenticationService: AuthenticationServiceProvider,
               public load: LoadingController) {
+    authenticationService.getUserLang()
+      .then(res => {
+        if (!res) {
+          this.lang = 'uk';
+        } else {
+          this.lang = res.language;
+        }
+      });
   }
 
   ionViewDidLoad() {
@@ -22,29 +34,34 @@ export class ContactsPage {
           spinner: 'bubbles'
       });
       loading.present();
+    this.authenticationService.getUser()
+      .then(
+        res => {
+          this.cookie = res.cookie;
+          this.WPService.getContactInfo(res.cookie)
+            .subscribe((data: any) => {
+                for (let reference of data.response.pages) {
+                  this.contacts.push(reference)
 
-        this.WPService.getContactInfo()
-            .subscribe((data:any) => {
-                for(let i = 0; i < data.length; i++){
-                    if(data[i].parent == 65){
-                        this.contacts.push(data[i])
-                    }
                 }
+                this.contacts = this.WPService.parseTextLang(this.contacts, this.lang);
                 /*console.log(this.contacts[1].slug);*/
                 loading.dismiss();
-            }
-        );
+              }
+            );
+        });
   }
 
-  goToMap(Coordinate){
-      let regExp = /[<p>/\n]/g;
+  goToMap(id){
+    this.navCtrl.push(InfoContactPage, {id: id, cookie:  this.cookie});
+     /* let regExp = /[<p>/\n]/g;
 
       Coordinate = Coordinate.replace(regExp, '').split(' ');
-      //  console.log(Coordinate);
+      console.log(Coordinate);
       this.navCtrl.push(InfoContactPage, {
         x: Coordinate[0],
         y: Coordinate[1]
-      });
+      });*/
   }
 
 }

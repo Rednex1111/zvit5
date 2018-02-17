@@ -18,7 +18,11 @@ export const GET_GROUPS = SITE_URL + API_URL + 'getGroups/';
 export const GET_PRODUCTS = SITE_URL + API_URL + 'getproducts/';
 export const GET_PRODUCT_INFO = SITE_URL + API_URL + 'getProductInfo';
 export const ADD_PRODUCT = SITE_URL + API_URL + 'addProductToCompany';
-export const GET_CONTACT_INFO = SITE_URL + '/wp-json/wp/v2/pages/';
-export const GET_REFERENCE_BOOK= SITE_URL + '/wp-json/wp/v2/pages/';
+export const GET_CONTACT_INFO = SITE_URL + API_URL + 'getReferenceBooks';
+export const GET_CONTACT_INFO_BY_ID = SITE_URL + API_URL + 'getPost';
+export const GET_REFERENCE_BOOK= SITE_URL + API_URL + 'getReferenceBooks';
+export const GET_REFERENCE_BOOK_BY_ID= SITE_URL + API_URL + 'getPost';
 export const GET_TOKEN = SITE_URL + '/wp-json/jwt-auth/v1/token';
+export const PARENT_ID_REFERENCE = 11;
+export const PARENT_ID_CONTACTS = 65;
 
