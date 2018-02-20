@@ -13,6 +13,7 @@ import {TranslateService} from "@ngx-translate/core";
 export class InfoEnterprisesPage {
     company_id: any;
     company_info = [];
+    company_info_date = [];
     toastOption: ToastOptions;
     toastRename: ToastOptions;
     title: string;
@@ -44,6 +45,15 @@ export class InfoEnterprisesPage {
                 this.WPservis.getCompanyInfo(res, this.company_id).subscribe((res: any) => {
                     for (let info in res.response.products) {
                         this.company_info.push(res.response.products[info]);
+                    }
+
+                    for (let info in res.response.date) {
+                        let term = {name: '', term: ''};
+                        if(res.response.date[info] !== null){
+                          term.name = info;
+                          term.term = res.response.date[info];
+                          this.company_info_date.push(term);
+                        }
                     }
                 })
             },

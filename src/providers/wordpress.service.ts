@@ -13,8 +13,9 @@ export class WordpressService {
         return this.http.get(
             Config.GET_POSTS
             + '?insecure=cool'
-            + '&cookie=' + cookie) /*{ headers: { 'Cache-Control' : 'no-cache' , 'Access-Control-Allow-Origin': 'http://zvit.pixy.pro'} }*/
+            + '&cookie=' + cookie/*, { headers: { 'Cache-Control' : 'no-cache'} }*/)
             .map(res => res);
+
     }
 
     getPostsById(nonce, cookie, category_id) {
@@ -37,13 +38,15 @@ export class WordpressService {
 
     getProduct(nonce, cookie, id) {
         return this.http.get(Config.GET_PRODUCTS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id) /* ,{ headers: { 'Cache-Control' : 'no-cache' } }*/
+            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
     getGroups(nonce, cookie) {
         return this.http.get(Config.GET_GROUPS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie) /*,{ headers: { 'Cache-Control' : 'no-cache' } }*/
+            + '&insecure=cool' + '&cookie=' + cookie
+          ,{ headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -52,27 +55,6 @@ export class WordpressService {
         + '?insecure=cool'
         + '&cookie=' + cookie
         + '&user_id=' + user_id, { headers: { 'Cache-Control' : 'no-cache' } });
-
-     /* const httpOptions = {
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST'
-        })
-      };
-      alert(JSON.stringify(this.http.post(Config.GET_COMPANIES,{
-        insecure: 'cool',
-        cookie: cookie,
-        user_id: user_id,
-      },httpOptions).subscribe(res=>{})));
-
-      return  this.http.post(Config.GET_COMPANIES,{
-        insecure: 'cool',
-        cookie: cookie,
-        user_id: user_id,
-      },httpOptions);*/
-
-
     }
 
     createCompany(user_id, nonce, cookie, title, mfo) {
@@ -109,7 +91,7 @@ export class WordpressService {
         return this.http.get(Config.GET_CONTACT_INFO +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&parent_id=' + Config.PARENT_ID_CONTACTS/*, { headers: { 'Cache-Control' : 'no-cache' } }*/)
+          '&parent_id=' + Config.PARENT_ID_CONTACTS, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -117,7 +99,8 @@ export class WordpressService {
         return this.http.get(Config.GET_CONTACT_INFO_BY_ID +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&post_id=' + id) /*, { headers: { 'Cache-Control' : 'no-cache' } }*/
+          '&post_id=' + id,
+          { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -125,7 +108,7 @@ export class WordpressService {
         return this.http.get(Config.GET_REFERENCE_BOOK +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&parent_id=' + Config.PARENT_ID_REFERENCE/*, { headers: { 'Cache-Control' : 'no-cache' } }*/)
+          '&parent_id=' + Config.PARENT_ID_REFERENCE, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 
@@ -133,7 +116,7 @@ export class WordpressService {
         return this.http.get(Config.GET_REFERENCE_BOOK_BY_ID +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&post_id=' + id)/*, { headers: { 'Cache-Control' : 'no-cache' } }*/
+          '&post_id=' + id, { headers: { 'Cache-Control' : 'no-cache' } })
             .map(res => res);
     }
 

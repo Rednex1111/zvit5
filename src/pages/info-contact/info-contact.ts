@@ -28,14 +28,20 @@ export class InfoContactPage {
     ionViewDidLoad() {
       let id = this.navParams.get('id');
       let cookie = this.navParams.get('cookie');
+      let title = this.navParams.get('title');
       this.WPService.getContactInfoById(id, cookie)
         .subscribe((data: any) => {
             this.contact_info.push(data.response.post);
             this.contact_info = this.WPService.parseTextLang(this.contact_info, this.lang);
-            this.title =  this.contact_info[0].title;
+            this.title =  this.parseCityName(this.contact_info[0].title);
             this.contact_info = this.contact_info[0].content;
           }
         );
+    }
+
+    parseCityName(Name){
+        let end = Name.indexOf('<a');
+        return Name.slice(0, end);
     }
 
 }

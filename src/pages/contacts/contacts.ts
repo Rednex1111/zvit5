@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController, LoadingController } from 'ionic-angular';
-import { WordpressService } from "../../providers/wordpress.service";
-import { InfoContactPage } from "../info-contact/info-contact";
-import { AuthenticationServiceProvider } from "../../providers/authentication-service/authentication-service";
+import {Component} from '@angular/core';
+import {NavController, LoadingController} from 'ionic-angular';
+import {WordpressService} from "../../providers/wordpress.service";
+import {InfoContactPage} from "../info-contact/info-contact";
+import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";
 
 @Component({
   selector: 'page-contacts',
@@ -30,10 +30,10 @@ export class ContactsPage {
   }
 
   ionViewDidLoad() {
-      let loading = this.load.create({
-          spinner: 'bubbles'
-      });
-      loading.present();
+    let loading = this.load.create({
+      spinner: 'bubbles'
+    });
+    loading.present();
     this.authenticationService.getUser()
       .then(
         res => {
@@ -52,16 +52,13 @@ export class ContactsPage {
         });
   }
 
-  goToMap(id){
-    this.navCtrl.push(InfoContactPage, {id: id, cookie:  this.cookie});
-     /* let regExp = /[<p>/\n]/g;
-
-      Coordinate = Coordinate.replace(regExp, '').split(' ');
-      console.log(Coordinate);
-      this.navCtrl.push(InfoContactPage, {
-        x: Coordinate[0],
-        y: Coordinate[1]
-      });*/
+  goToMap(id, title) {
+    this.navCtrl.push(InfoContactPage,
+      {
+        id: id,
+        cookie: this.cookie,
+        title: title
+      });
   }
 
 }

@@ -1,6 +1,6 @@
 //config constants
-export const SITE_URL = 'http://zvit.pixy.pro/';
-export const API_URL = 'index.php/api/user/';
+export const SITE_URL = 'http://bestzvit.dp.ua/';
+export const API_URL = 'api/user/';
 export const WORDPRESS_NONCE = SITE_URL + 'api/get_nonce/?controller=user&method=register';
 export const LOGIN = SITE_URL + 'api/user/login/';
 export const REGISTER = SITE_URL + 'wp-json/wp/v2/users';
@@ -24,5 +24,5 @@ export const GET_REFERENCE_BOOK= SITE_URL + API_URL + 'getReferenceBooks';
 export const GET_REFERENCE_BOOK_BY_ID= SITE_URL + API_URL + 'getPost';
 export const GET_TOKEN = SITE_URL + '/wp-json/jwt-auth/v1/token';
 export const PARENT_ID_REFERENCE = 11;
-export const PARENT_ID_CONTACTS = 65;
+export const PARENT_ID_CONTACTS = 968;
 

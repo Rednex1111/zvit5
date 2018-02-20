@@ -40,13 +40,13 @@ export class EnterprisesPage {
           this.loadEnterprise();
         }
       });
+  }
+
+  loadEnterprise() {
     this.translate.get('EnterprisesPage', this.lang).subscribe(
       res => {
         document.getElementById('title_page').innerText = res;
       });
-  }
-
-  loadEnterprise() {
     this.Enterprise_translate = this.translate.store.translations[this.lang].Enterprises;
     this.AuthenticationService.getUser().then(
       data => {

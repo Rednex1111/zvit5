@@ -40,9 +40,9 @@ export class ReferenceBookPage {
           this.cookie = res.cookie;
           this.WPService.getReferenceBook(res.cookie)
             .subscribe((data: any) => {
+                console.log(data);
                 for(let reference of data.response.pages){
                   this.articles.push(reference)
-
                 }
                 this.articles = this.WPService.parseTextLang(this.articles, this.lang);
                 loading.dismiss();
