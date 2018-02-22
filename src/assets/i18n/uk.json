@@ -4,7 +4,7 @@
   "ReferenceBookPage" : "Довідник",
   "EnterprisesPage" : "Мої підприємства",
   "GoodsPage" : "Отримати рахунок",
-  "BeaconCommunicationPage" : "Відділ продажу",
+  "BeaconCommunicationPage" : "Зв'язок з Маяком",
   "ContactsPage" : "Контакти",
   "SettingsPage" : "Налаштування",
   "exit" : "Вихід",
@@ -62,7 +62,7 @@
     "InvalidPassword": "Паролі не співпадають"
   },
   "Welcome": {
-    "title": "Ласкаво просимо",
+    "title": "Ласкаво просимо !",
     "login": "Логін",
     "registration": "Реєстрація"
   }

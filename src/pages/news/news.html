@@ -18,7 +18,7 @@
                 <p [innerHTML]="post.content.substr(0, 80) +' ...'" class="content_post"></p>
             </div>
         </ion-card-content>
-        <ion-row no-padding> <!--style="margin-top: 20px;"-->
+        <ion-row no-padding style="min-width: 100%">
             <ion-col col-3>
                 <button (click)="CategoriesTaped(post.category_id)" ion-button clear small color="primary" icon-start id="{{post.category_id}}">
                     {{post.category_name}}

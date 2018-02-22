@@ -43,10 +43,7 @@ export class EnterprisesPage {
   }
 
   loadEnterprise() {
-    this.translate.get('EnterprisesPage', this.lang).subscribe(
-      res => {
-        document.getElementById('title_page').innerText = res;
-      });
+
     this.Enterprise_translate = this.translate.store.translations[this.lang].Enterprises;
     this.AuthenticationService.getUser().then(
       data => {
@@ -81,6 +78,10 @@ export class EnterprisesPage {
   }
 
   initializeCompany(data) {
+    this.translate.get('EnterprisesPage', this.lang).subscribe(
+      res => {
+        document.getElementById('title_page').innerText = res;
+      });
     for (let company of data) {
       this.companies.push(company);
     }

@@ -43,9 +43,9 @@ export class InfoEnterprisesPage {
           (res: any)=> {
                 this.cookie = res.cookie;
                 this.WPservis.getCompanyInfo(res, this.company_id).subscribe((res: any) => {
-                    for (let info in res.response.products) {
+                    /*for (let info in res.response.products) {
                         this.company_info.push(res.response.products[info]);
-                    }
+                    }*/
 
                     for (let info in res.response.date) {
                         let term = {name: '', term: ''};
