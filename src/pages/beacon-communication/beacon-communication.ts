@@ -88,6 +88,9 @@ export class BeaconCommunicationPage {
                         //this.toast.create(this.toastOption).present();
                         loading.dismiss();
                     }
+                },err => {
+                  loading.dismiss();
+                  console.log(JSON.stringify(err));
                 });
         }
     }

@@ -24,29 +24,25 @@ export class WordpressService {
             '?nonce=' + nonce +
             '&insecure=cool' +
             '&cookie=' + cookie +
-            '&category_id=' + category_id,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+            '&category_id=' + category_id)
             .map(res => res);
     }
 
     getPostData(nonce, cookie, post_id) {
-        return this.http.get(Config.GET_POST + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&post_id=' + post_id,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+        return this.http.get(Config.GET_POST
+            + '?insecure=cool' + '&cookie=' + cookie + '&post_id=' + post_id)
             .map(res => res);
     }
 
     getProduct(nonce, cookie, id) {
         return this.http.get(Config.GET_PRODUCTS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+            + '&insecure=cool' + '&cookie=' + cookie + '&group_id=' + id)
             .map(res => res);
     }
 
     getGroups(nonce, cookie) {
         return this.http.get(Config.GET_GROUPS + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie
-          ,{ headers: { 'Cache-Control' : 'no-cache' } })
+            + '&insecure=cool' + '&cookie=' + cookie)
             .map(res => res);
     }
 
@@ -54,21 +50,19 @@ export class WordpressService {
       return this.http.get(Config.GET_COMPANIES
         + '?insecure=cool'
         + '&cookie=' + cookie
-        + '&user_id=' + user_id, { headers: { 'Cache-Control' : 'no-cache' } });
+        + '&user_id=' + user_id);
     }
 
     createCompany(user_id, nonce, cookie, title, mfo) {
         return this.http.get(Config.CREATE_COMPANY + '?nonce=' + nonce
             + '&insecure=cool' + '&cookie=' + cookie + '&user_id=' + user_id +
-            '&title=' + title + '&mfo=' + mfo,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+            '&title=' + title + '&mfo=' + mfo)
             .map(res => res);
     }
 
     getProductInfo(product_id, nonce, cookie) {
         return this.http.get(Config.GET_PRODUCT_INFO + '?nonce=' + nonce
-            + '&insecure=cool' + '&cookie=' + cookie + '&product_id=' + product_id
-          , { headers: { 'Cache-Control' : 'no-cache' } })
+            + '&insecure=cool' + '&cookie=' + cookie + '&product_id=' + product_id)
             .map(res => res);
     }
 
@@ -82,8 +76,7 @@ export class WordpressService {
             '&company_id=' + data.company_id +
             '&product[name]=' + data.product[0].name +
             '&product[term]=' + data.product[0].term +
-            '&product[price]=' + data.product[0].price,
-          { headers: { 'Cache-Control' : 'no-cache' } }
+            '&product[price]=' + data.product[0].price
         ).map(res => res);
     }
 
@@ -91,7 +84,7 @@ export class WordpressService {
         return this.http.get(Config.GET_CONTACT_INFO +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&parent_id=' + Config.PARENT_ID_CONTACTS, { headers: { 'Cache-Control' : 'no-cache' } })
+          '&parent_id=' + Config.PARENT_ID_CONTACTS)
             .map(res => res);
     }
 
@@ -99,8 +92,7 @@ export class WordpressService {
         return this.http.get(Config.GET_CONTACT_INFO_BY_ID +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&post_id=' + id,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+          '&post_id=' + id)
             .map(res => res);
     }
 
@@ -108,7 +100,7 @@ export class WordpressService {
         return this.http.get(Config.GET_REFERENCE_BOOK +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&parent_id=' + Config.PARENT_ID_REFERENCE, { headers: { 'Cache-Control' : 'no-cache' } })
+          '&parent_id=' + Config.PARENT_ID_REFERENCE)
             .map(res => res);
     }
 
@@ -116,7 +108,7 @@ export class WordpressService {
         return this.http.get(Config.GET_REFERENCE_BOOK_BY_ID +
           '?insecure=cool' +
           '&cookie=' + cookie +
-          '&post_id=' + id, { headers: { 'Cache-Control' : 'no-cache' } })
+          '&post_id=' + id)
             .map(res => res);
     }
 
@@ -126,8 +118,7 @@ export class WordpressService {
             '&insecure=cool' +
             '&cookie=' + user.cookie +
             '&user_id=' + user.user_id +
-            '&company_id=' + company,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+            '&company_id=' + company)
             .map(res => res);
     }
 
@@ -136,8 +127,7 @@ export class WordpressService {
             '?insecure=cool' +
             '&cookie=' + cookie +
             '&company_id=' + company_id +
-            '&title=' + title,
-          { headers: { 'Cache-Control' : 'no-cache' } })
+            '&title=' + title)
             .map(res => res);
     }
 
@@ -147,8 +137,7 @@ export class WordpressService {
             '&insecure=' + 'cool' +
             '&cookie=' + data.cookie +
             '&user_id=' + data.user_id +
-            '&company_id=' + company_id,
-          { headers: { 'Cache-Control' : 'no-cache' } }
+            '&company_id=' + company_id
         ).map(res => res);
     }
 
@@ -159,8 +148,7 @@ export class WordpressService {
             '&cookie=' + data_user.cookie +
             '&email=' + email_info.email +
             '&subject=' + email_info.subject +
-            '&message=' + email_info.message,
-          { headers: { 'Cache-Control' : 'no-cache' } }
+            '&message=' + email_info.message
         ).map(res => res);
     }
 
@@ -171,8 +159,7 @@ export class WordpressService {
             '&cookie=' + cookie +
             '&os_type=' + platform +
             '&token=' + device_token +
-            '&user_id=' + user_id,
-          { headers: { 'Cache-Control' : 'no-cache' } });
+            '&user_id=' + user_id);
     }
 
     parseTextLang(array, lang){

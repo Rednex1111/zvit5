@@ -47,6 +47,9 @@ export class ContactsPage {
                 this.contacts = this.WPService.parseTextLang(this.contacts, this.lang);
                 /*console.log(this.contacts[1].slug);*/
                 loading.dismiss();
+              },err => {
+                loading.dismiss();
+                console.log(JSON.stringify(err));
               }
             );
         });

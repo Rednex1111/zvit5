@@ -37,22 +37,30 @@ export class ReferenceBookPage {
     this.authenticationService.getUser()
       .then(
         res => {
+          console.log(res);
           this.cookie = res.cookie;
-          this.WPService.getReferenceBook(res.cookie)
-            .subscribe((data: any) => {
-                console.log(data);
-                for(let reference of data.response.pages){
-                  this.articles.push(reference)
-                }
-                this.articles = this.WPService.parseTextLang(this.articles, this.lang);
-                loading.dismiss();
-              }
-            )
+          this.getPosts(res);
+          loading.dismiss();
         }
       );
 
   }
 
+  getPosts(res){
+    this.WPService.getReferenceBook(res.cookie)
+      .subscribe((data: any) => {
+          console.log(data.response.pages);
+          for(let reference of data.response.pages){
+            this.articles.push(reference)
+          }
+          this.articles = this.WPService.parseTextLang(this.articles, this.lang);
+
+        },err => {
+          //loading.dismiss();
+          console.log(JSON.stringify(err));
+        }
+      )
+  }
     openArticle(id){
         this.navCtrl.push(InfoReferenceBookPage, {
             id: id,

@@ -41,108 +41,18 @@ export class PostPage {
           .then(
               data =>{
                   this.getPostData(data.nonce, data.cookie)
-                      .subscribe(data => {
+                      .subscribe((data:any) => {
                           loading.dismiss();
-                      });
+                      },err => {
+                        loading.dismiss();
+                        console.log(JSON.stringify(err));
+                      })
+
               })
     }
 
   getPostData(nonce, cookie){
-    return this.wordpressService.getPostData(nonce, cookie,this.post.post_id);
+    return this.wordpressService.getPostData(nonce, cookie, this.post.post_id);
   }
 
-
-/*  loadMoreComments(infiniteScroll) {
-    let page = (this.comments.length/10) + 1;
-    this.wordpressService.getComments(this.post.id, page)
-    .subscribe(data => {
-      for(let item of data){
-        this.comments.push(item);
-      }
-      infiniteScroll.complete();
-    }, err => {
-      console.log(err);
-      this.morePagesAvailable = false;
-    })
-  }
-
-  goToCategoryPosts(categoryId, categoryTitle){
-    this.navCtrl.push(NewsPage, {
-      id: categoryId,
-      title: categoryTitle
-    })
-  }
-
-  createComment(){
-    let user: any;
-
-    this.authenticationService.getUser()
-    .then(res => {
-      user = res;
-
-      let alert = this.alertCtrl.create({
-      title: 'Add a comment',
-      inputs: [
-        {
-          name: 'comment',
-          placeholder: 'Comment'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: data => {
-            console.log('Cancel clicked');
-          }
-        },
-        {
-          text: 'Accept',
-          handler: data => {
-            let loading = this.loadingCtrl.create();
-            loading.present();
-            this.wordpressService.createComment(this.post.id, user, data.comment)
-            .subscribe(
-              (data) => {
-                console.log("ok", data);
-                this.getComments();
-                loading.dismiss();
-              },
-              (err) => {
-                console.log("err", err);
-                loading.dismiss();
-              }
-            );
-          }
-        }
-      ]
-    });
-    alert.present();
-    },
-    err => {
-      console.log(err)
-      let alert = this.alertCtrl.create({
-        title: 'Please login',
-        message: err,
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: () => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Login',
-            handler: () => {
-              this.navCtrl.push(LoginPage);
-            }
-          }
-        ]
-      });
-    alert.present();
-    });
-
-
-  }*/
 }

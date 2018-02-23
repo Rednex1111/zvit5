@@ -88,6 +88,9 @@ export class GoodInfoPage {
                         this.companies.push(company);
                       }
                     }
+                  },err => {
+                    loading.dismiss();
+                    console.log(JSON.stringify(err));
                   });
               } else {
                 this.NoProductYet = true;
@@ -108,7 +111,7 @@ export class GoodInfoPage {
     check.className += ' check_prod_select';
 
     let term = this.endLicense(product.term);
-    console.log(term);
+
     this.order.product[0].name = product.name;
     this.order.product[0].term = term || null;
     this.order.product[0].price = product.price;
@@ -157,6 +160,9 @@ export class GoodInfoPage {
             this.toast.create(this.toastOption).present();
             loading.dismiss();
           }
+        },err => {
+          loading.dismiss();
+          console.log(JSON.stringify(err));
         });
     }
   }

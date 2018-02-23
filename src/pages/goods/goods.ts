@@ -41,6 +41,9 @@ export class GoodsPage {
                           console.log(this.goods);
                           loading.dismiss();
 
+                      },err => {
+                        loading.dismiss();
+                        console.log(JSON.stringify(err));
                       });
               });
 
