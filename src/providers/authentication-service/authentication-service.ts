@@ -43,7 +43,7 @@ export class AuthenticationServiceProvider {
     return this.http.get(Config.WORDPRESS_NONCE);
   }
 
-   /*   doLogin(username, password) {
+     /* doLogin(username, password) {
         const httpOptions = {
           headers: new HttpHeaders({
             'Content-Type':  'application/json',

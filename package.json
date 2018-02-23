@@ -30,6 +30,7 @@
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
     "cordova-android": "6.3.0",
+    "cordova-ios": "4.5.4",
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
@@ -59,7 +60,8 @@
       "cordova-plugin-fcm": {}
     },
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
   }
 }
