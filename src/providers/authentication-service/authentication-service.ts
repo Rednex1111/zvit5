@@ -43,30 +43,7 @@ export class AuthenticationServiceProvider {
     return this.http.get(Config.WORDPRESS_NONCE);
   }
 
- /*     doLogin(username, password) {
-        const httpOptions = {
-          headers: new HttpHeaders({
-            'Content-Type':  'application/json',
-            'Access-Control-Allow-Origin': 'http://bestzvit.dp.ua',
-            'Access-Control-Allow-Methods': 'POST, GET',
-            'Cache-Control': 'no-cache'
-          })
-        };
-      /!*    let header: Headers = new Headers();
-          header.append("Access-Control-Allow-Origin", "http://zvit.pixy.pro/");
-          header.append("Access-Control-Allow-Methods", "POST");
-          header.append("Content-Type", "application/json");
-          header.append("Accept", "application/json");
-          header.append("Cache-Control", "no-cache");*!/
-/!*      let req = new XMLHttpRequest();
-      let url = Config.LOGIN;*!/
 
-          return this.http.post(Config.LOGIN, {
-              username: username,
-              password: password,
-              insecure: 'cool'
-          }, httpOptions)
-      }*/
 
   doLogin(username, password){
     return this.http.get(Config.LOGIN +

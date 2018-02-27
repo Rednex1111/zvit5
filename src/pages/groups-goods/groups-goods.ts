@@ -44,6 +44,9 @@ export class GroupsGoodsPage {
                             }
                           this.groups = this.wordpressService.parseTextLang(this.groups, this.lang);
                             loading.dismiss();
+                        },err => {
+                          loading.dismiss();
+                          console.log(JSON.stringify(err));
                         });
                 });
 

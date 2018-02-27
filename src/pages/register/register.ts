@@ -102,6 +102,9 @@ export class RegisterPage {
                             cssClass: 'alerterr'
                         });
                         alert.present();
+
+                        console.log(JSON.stringify(error));
+
                         loading.dismiss();
                     }
                 )

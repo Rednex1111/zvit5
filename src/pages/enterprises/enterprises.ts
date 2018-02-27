@@ -64,6 +64,9 @@ export class EnterprisesPage {
                   this.noData = true;
                   loading.dismiss();
                 }
+              },err => {
+                loading.dismiss();
+                console.log(JSON.stringify(err));
               })
         } else {
           console.log('no data');
