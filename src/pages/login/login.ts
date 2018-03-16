@@ -68,7 +68,7 @@ export class LoginPage {
               console.log('status= '+ res.status);
             });
           this.navCtrl.setRoot(NewsPage);
-
+          this.fcm.subscribeToTopic('pushallusermayak');
           loading.dismiss();
         },
         err => {

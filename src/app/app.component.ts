@@ -111,6 +111,7 @@ export class MyApp {
   push() {
     this.fcm.onNotification().subscribe(data => {
       if (data.wasTapped) {
+        console.log( "1");
         let alert_ms = this.alertCtrl.create({
           title: JSON.stringify(data.body),
           buttons: [
@@ -124,6 +125,7 @@ export class MyApp {
         });
         alert_ms.present();
       } else {
+        console.log("2");
         let alert_ms = this.alertCtrl.create({
           title: JSON.stringify(data.body),
           buttons: [

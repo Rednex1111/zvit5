@@ -51,6 +51,7 @@
     "Nodata": "Товари відсутні"
   },
   "Login": {
+    "title_header": "Вхiд",
     "title": "З поверненням!",
     "password": "Пароль",
     "btn_login": "Логін"

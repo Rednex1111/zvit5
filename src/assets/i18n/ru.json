@@ -51,6 +51,7 @@
     "Nodata": "Здесь еще нет товара"
   },
   "Login": {
+    "title_header": "Вход",
     "title": "С возвращением",
     "password": "Пароль",
     "btn_login": "Войти"

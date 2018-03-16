@@ -1,6 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{'Login.title_header' | translate}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
 <ion-content padding class="form-content">
   <form class="form" [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
-    <ion-label class="title">{{'Login.title' | translate}}</ion-label>
+    <ion-label class="title_welcome">{{'Login.title' | translate}}</ion-label>
     <ion-item>
       <ion-label color="primary">E-mail</ion-label>
       <ion-input type="email" formControlName="username" class="form-controll" required></ion-input>
