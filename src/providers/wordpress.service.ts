@@ -112,12 +112,13 @@ export class WordpressService {
             .map(res => res);
     }
 
-    deleteCompany(user, company) {
+    deleteCompany(user, company, count) {
         return this.http.get(Config.DELETE_COMPANY +
             '?nonce=' + user.nonce +
             '&insecure=cool' +
             '&cookie=' + user.cookie +
             '&user_id=' + user.user_id +
+            '&all=' + count +
             '&company_id=' + company)
             .map(res => res);
     }
@@ -141,14 +142,14 @@ export class WordpressService {
         ).map(res => res);
     }
 
-    sendMail(data_user, email_info) {
+    sendMail(data_user, email_info, phone, mfo) {
         return this.http.get(Config.SEND_MAIL +
             '?nonce=' + data_user.nonce +
             '&insecure=' + 'cool' +
             '&cookie=' + data_user.cookie +
             '&email=' + email_info.email +
             '&subject=' + email_info.subject +
-            '&message=' + email_info.message
+            '&message=' + `${email_info.message}\n${phone}\n${mfo}`
         ).map(res => res);
     }
 

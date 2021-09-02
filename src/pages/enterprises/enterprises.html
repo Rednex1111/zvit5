@@ -14,14 +14,21 @@
         </button>
     </ion-fab>
 
+  <ion-fab left bottom>
+    <button ion-fab color="danger" (click)="deleteCompanies()">
+      <ion-icon name="trash" color="white"></ion-icon>
+    </button>
+  </ion-fab>
+
     <ion-list>
-        <ion-item *ngFor="let company of companies" id="{{company.company_id}}">
-            <div (click)="infoTapped(company)">
+        <ion-item *ngFor="let company of companies; let i = index" id="{{company.company_id}}" (click)="!company.tapped ? infoTapped(company) : null" (press)="chooseCompany(i)">
+            <div [style.color]="!company.tapped ? '#000' : '#488aff'">
                 {{company.title}}
             </div>
-            <button icon-only class="icon-enterprise-go" (click)="infoTapped(company)">
+            <button icon-only class="icon-enterprise-go" *ngIf="!company.tapped">
                 <ion-icon name="arrow-forward" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
             </button>
+          <ion-radio *ngIf="company.tapped" [checked]="company.chosen" [value]="company.chosen"></ion-radio>
         </ion-item>
     </ion-list>
     <div *ngIf="noData">

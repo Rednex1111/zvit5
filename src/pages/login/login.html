@@ -9,16 +9,16 @@
 <ion-content padding class="form-content">
   <form class="form" [formGroup]="login_form" (ngSubmit)="login(login_form.value)">
     <ion-label class="title_welcome">{{'Login.title' | translate}}</ion-label>
-    <ion-item>
-      <ion-label color="primary">E-mail</ion-label>
-      <ion-input type="email" formControlName="username" class="form-controll" required></ion-input>
+    <ion-item style="padding: 10px!important;">
+      <ion-label color="primary" floating>{{'Register.numberPhone' | translate}}</ion-label>
+      <ion-input type="phone" formControlName="phoneNumber" maxlength="13" [(ngModel)]="phoneNumber" class="form-controll" required></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label color="primary">{{'Login.password' | translate}}</ion-label>
-      <ion-input type="password" formControlName="password" class="form-controll" required></ion-input>
+    <ion-item style="padding: 10px!important;">
+      <ion-label color="primary" floating>{{'Register.code' | translate}}</ion-label>
+      <ion-input type="number" formControlName="code" maxlength="4" [(ngModel)]="code" class="form-controll"></ion-input>
     </ion-item>
-    <p class="error-message" *ngIf="error_message">{{error_message}}</p>
-    <button ion-button full class="login-button" [disabled]="!login_form.valid" type="submit">{{'Login.btn_login' | translate}}</button>
+    <!--<p class="error-message" *ngIf="error_message">{{error_message}}</p>-->
+    <button ion-button full type="submit" [disabled]="!login_form.valid">{{codeSended ? ('Register.btn_register' | translate) : ('Register.get_code' | translate)}}</button>
   </form>
 </ion-content>

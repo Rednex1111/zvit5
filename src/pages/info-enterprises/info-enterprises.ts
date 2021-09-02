@@ -81,7 +81,7 @@ export class InfoEnterprisesPage {
                     handler: data_company => {
                         this.Auth.getUser().then(
                             user => {
-                                this.WPservis.deleteCompany(user, this.company_id)
+                                this.WPservis.deleteCompany(user, this.company_id, 0)
                                     .subscribe(res => {
                                         this.navCtrl.setRoot(EnterprisesPage);
                                         this.toast.create(this.toastOption).present();

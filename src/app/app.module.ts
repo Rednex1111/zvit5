@@ -36,6 +36,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AgmCoreModule } from "@agm/core";
 import { Sim } from "@ionic-native/sim";
 import { FCM } from "@ionic-native/fcm";
+import {HttpModule} from "@angular/http";
+import {LeisurePage} from "../pages/leisure/leisure";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -60,11 +62,13 @@ export function createTranslateLoader(http: HttpClient) {
     ContactsPage,
     GoodInfoPage,
     PostPage,
-    InfoContactPage
+    InfoContactPage,
+    LeisurePage
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    HttpModule,
     IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp),
     TranslateModule.forRoot({
@@ -95,7 +99,8 @@ export function createTranslateLoader(http: HttpClient) {
     ContactsPage,
     GoodInfoPage,
     PostPage,
-    InfoContactPage
+    InfoContactPage,
+    LeisurePage
   ],
   providers: [
     StatusBar,

@@ -4,6 +4,7 @@ import {WordpressService} from "../../providers/wordpress.service";
 import {AuthenticationServiceProvider} from "../../providers/authentication-service/authentication-service";
 import {NewsPage} from "../news/news";
 import {TranslateService} from "@ngx-translate/core";
+import {Sim} from "@ionic-native/sim";
 
 
 @Component({
@@ -17,6 +18,8 @@ export class BeaconCommunicationPage {
   lang: any;
   companies: Array<any> = new Array<any>();
   msg: string;
+  mfo: any;
+  phoneNumber: any;
   data_user = {
     cookie: '',
     nonce: ''
@@ -24,7 +27,8 @@ export class BeaconCommunicationPage {
   email_info = {
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    mfo: null
   };
 
   constructor(public navCtrl: NavController,
@@ -32,7 +36,8 @@ export class BeaconCommunicationPage {
               public toast: ToastController,
               public translate: TranslateService,
               public WPService: WordpressService,
-              public AuthService: AuthenticationServiceProvider) {
+              public AuthService: AuthenticationServiceProvider,
+              public sim: Sim) {
     this.AuthService.getUserLang()
       .then(res => {
         if (!res) {
@@ -43,8 +48,7 @@ export class BeaconCommunicationPage {
           this.Load();
         }
       });
-
-
+    this.getSimData();
   }
 
   Load() {
@@ -61,6 +65,7 @@ export class BeaconCommunicationPage {
               for (let company of res.response.companies) {
                 this.companies.push(company);
               }
+              console.log(this.companies);
             }
           });
       });
@@ -88,7 +93,7 @@ export class BeaconCommunicationPage {
       //let toast =  this.toast.create(this.toastOptionErr).present();
     } else {
       loading.present();
-      this.WPService.sendMail(this.data_user, this.email_info)
+      this.WPService.sendMail(this.data_user, this.email_info, this.phoneNumber, this.mfo)
         .subscribe((res: any) => {
           if (res.response.status) {
             toastOk.present();
@@ -108,11 +113,30 @@ export class BeaconCommunicationPage {
   }
 
   selectCompany(value) {
+    console.log(localStorage.getItem('phone'));
     this.email_info.subject = value;
   }
 
+  getMFO(company) {
+    this.mfo = company.mfo;
+  }
   selectEmail(value) {
     this.email_info.email = value;
+  }
+
+  async getSimData() {
+    try {
+      let simPermission = await this.sim.requestReadPermission();
+      if (simPermission == "OK") {
+        let simData = await this.sim.getSimInfo();
+        console.log(simData);
+        this.phoneNumber = simData.phoneNumber;
+        console.log(this.phoneNumber);
+      }
+    } catch (error) {
+      console.log(error);
+      this.getSimData();
+    }
   }
 
 }

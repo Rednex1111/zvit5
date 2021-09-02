@@ -17,6 +17,7 @@ export class NewsPage {
   lang: string;
   cookie: string;
   nonce: string;
+  recepts:string;
   //morePagesAvailable: boolean = true;
   loggedUser: boolean = false;
   constructor(
@@ -39,6 +40,10 @@ export class NewsPage {
   }
 
   ionViewWillEnter() {
+    this.translate.get('recepts', this.lang)
+      .subscribe(res => {
+        this.recepts = res;
+      });
     this.authenticationService.getUser()
     .then(
       data =>{
@@ -67,20 +72,27 @@ export class NewsPage {
   }
 
   getPosts() {
-      this.posts = [];
-      this.wordpressService.getRecentPosts(this.nonce, this.cookie )
-          .subscribe((data: any) => {
-              for(let post of data.response.posts){
-                  this.posts.push(post);
-              }
-              this.posts = this.wordpressService.parseTextLang(this.posts, this.lang);
+    this.posts = [];
+    let oldPosts = [];
+    this.wordpressService.getRecentPosts(this.nonce, this.cookie )
+      .subscribe((data: any) => {
+        for(let post of data.response.posts){
+          oldPosts.push(post);
+        }
+        oldPosts = this.wordpressService.parseTextLang(oldPosts, this.lang);
 
-              if (this.posts.length > 0){
-                  this.show_post = true;
-              } else {
-                  this.show_post = false;
-              }
-          });
+        for(let i = 0; i < oldPosts.length; i++){
+          if(oldPosts[i].category_name !== this.recepts){
+            this.posts.push(oldPosts[i]);
+          }
+        }
+
+        if (this.posts.length > 0){
+          this.show_post = true;
+        } else {
+          this.show_post = false;
+        }
+      });
   }
 
   postTapped(event, post) {

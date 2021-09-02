@@ -36,6 +36,37 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503664648163:android:875cd8f89f1af063",
+        "android_client_info": {
+          "package_name": "ionic.mayakAssistent.wordpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503664648163-s0kdf9abmsi0l6mjpbfk3rq6k3hobfmj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtdNGo4RvKN8mdbKUcQxs1-h9YJ1feTxI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"

@@ -14,6 +14,7 @@ import {WelcomePage} from "../pages/welcome/welcome";
 import {AuthenticationServiceProvider} from '../providers/authentication-service/authentication-service';
 import { FCM } from "@ionic-native/fcm";
 import { AlertController } from "ionic-angular";
+import {LeisurePage} from "../pages/leisure/leisure";
 
 @Component({
   templateUrl: 'app.html'
@@ -39,6 +40,7 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       {title: 'NewsPage', component: NewsPage, icon: 'logo-designernews'},
+      {title: 'LeisurePage', component: LeisurePage, icon: 'cafe'},
       {title: 'ReferenceBookPage', component: ReferenceBookPage, icon: 'book'},
       {title: 'EnterprisesPage', component: EnterprisesPage, icon: 'briefcase'},
       {title: 'GoodsPage', component: GroupsGoodsPage, icon: 'cart'},
@@ -47,7 +49,10 @@ export class MyApp {
       {title: 'SettingsPage', component: SettingsPage, icon: 'settings'},
       {title: 'exit', component: 'exit', icon: 'log-out'}
     ];
-    this.push();
+    platform.ready()
+      .then(() => {
+        this.push();
+      })
   }
 
   initializeApp() {
@@ -88,7 +93,8 @@ export class MyApp {
     // Here you can do any higher level native things you might need.
     this.statusBar.overlaysWebView(true);
     // set status bar to white
-    this.statusBar.backgroundColorByHexString('#ffffff');
+    this.statusBar.backgroundColorByHexString('#005798');
+    // this.statusBar.styleDefault();
     this.splashScreen.hide();
   }
 

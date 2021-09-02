@@ -2,6 +2,13 @@
   font-size: 30px;
 }*/
 
+ion-navbar.toolbar-md {
+  min-height: 94px!important;
+}
+//on iOS
+ion-navbar.toolbar.toolbar-ios {
+  min-height: 94px!important;
+}
 .title_page {
   position: absolute;
   color: #fefefe;
